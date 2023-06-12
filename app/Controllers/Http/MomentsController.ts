@@ -34,7 +34,7 @@ export default class MomentsController {
 
   //método get
   public async index() {
-    const moments = await Moment.all()
+    const moments = await Moment.query().preload('coments')
 
     return {
       data: moments,
